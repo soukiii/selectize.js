@@ -1,59 +1,66 @@
 [**Selectize needs your help. I'm looking for maintainers!**](https://github.com/brianreavis/selectize.js/issues/752)
 
-# selectize.js
+### Theming
 
-[![NPM version](http://img.shields.io/npm/v/selectize.svg?style=flat)](https://www.npmjs.org/package/selectize)
-![Bower version](http://img.shields.io/bower/v/selectize.svg?style=flat)
-[![Build Status](http://img.shields.io/travis/brianreavis/selectize.js/master.svg?style=flat)](https://travis-ci.org/brianreavis/selectize.js)
-[![Coverage Status](http://img.shields.io/coveralls/brianreavis/selectize.js/master.svg?style=flat)](https://coveralls.io/r/brianreavis/selectize.js)
+```sass
+// base styles
 
-Selectize is an extensible [jQuery](http://jquery.com/)-based custom &lt;select&gt; UI control. It's useful for tagging, contact lists, country selectors, and so on. It clocks in at around ~7kb (gzipped). The goal is to provide a solid & usable experience with a clean and powerful API.
+$selectize-font-family: inherit !default;
+$selectize-font-smoothing: inherit !default;
+$selectize-font-size: 13px !default;
+$selectize-line-height: 18px !default;
 
-- [Demos](http://brianreavis.github.io/selectize.js/)
-- [Changelog](https://github.com/brianreavis/selectize.js/releases)
-- [Examples](examples/)
-- [Usage Documentation](docs/usage.md)
-- [API Documentation](docs/api.md)
-- [Plugin Documentation](docs/plugins.md)
-- [Browser Test Matrix](https://saucelabs.com/u/selectize)
+$selectize-color-text: #303030 !default;
+$selectize-color-border: #d0d0d0 !default;
+$selectize-color-highlight: rgba(125,168,208,0.2) !default;
+$selectize-color-input: #fff !default;
+$selectize-color-input-full: $selectize-color-input !default;
+$selectize-color-disabled: #fafafa !default;
+$selectize-color-item: #f2f2f2 !default;
+$selectize-color-item-text: $selectize-color-text !default;
+$selectize-color-item-border: #d0d0d0 !default;
+$selectize-color-item-active: #e8e8e8 !default;
+$selectize-color-item-active-text: $selectize-color-text !default;
+$selectize-color-item-active-border: #cacaca !default;
+$selectize-color-dropdown: #fff !default;
+$selectize-color-dropdown-border: $selectize-color-border !default;
+$selectize-color-dropdown-border-top: #f0f0f0 !default;
+$selectize-color-dropdown-item-active: #f5fafd !default;
+$selectize-color-dropdown-item-active-text: #495c68 !default;
+$selectize-color-dropdown-item-create-text: rgba(red($selectize-color-text), green($selectize-color-text), blue($selectize-color-text), 0.5) !default;
+$selectize-color-dropdown-item-create-active-text: $selectize-color-dropdown-item-active-text !default;
+$selectize-color-optgroup: $selectize-color-dropdown !default;
+$selectize-color-optgroup-text: $selectize-color-text !default;
+$selectize-lighten-disabled-item: 30% !default;
+$selectize-lighten-disabled-item-text: 30% !default;
+$selectize-lighten-disabled-item-border: 30% !default;
+$selectize-opacity-disabled: 0.5 !default;
 
-### Features
+$selectize-shadow-input: inset 0 1px 1px rgba(0,0,0,0.1) !default;
+$selectize-shadow-input-focus: inset 0 1px 2px rgba(0,0,0,0.15) !default;
+$selectize-border: 1px solid $selectize-color-border !default;
+$selectize-dropdown-border: 1px solid $selectize-color-dropdown-border !default;
+$selectize-border-radius: 3px !default;
 
-- **Smart Option Searching / Ranking**<br>Options are efficiently scored and sorted on-the-fly (using [sifter](https://github.com/brianreavis/sifter.js)). Want to search an item's title *and* description? No problem.
-- **Caret between items**<br>Order matters sometimes. Use the <kbd>&larr;</kbd> and <kbd>&rarr;</kbd> arrow keys to move between selected items.</li>
-- **Select &amp; delete multiple items at once**<br>Hold down <kbd>option</kbd> on Mac or <kbd>ctrl</kbd> on Windows to select more than one item to delete.
-- **Díåcritîçs supported**<br>Great for international environments.
-- **Item creation**<br>Allow users to create items on the fly (async saving is supported; the control locks until the callback is fired).
-- **Remote data loading**<br>For when you have thousands of options and want them provided by the server as the user types.
-- **Clean API &amp; code**<br>Interface with it and make modifications easily. Pull requests welcome!
-- **Extensible**<br> [Plugin API](docs/plugins.md) for developing custom features (uses [microplugin](https://github.com/brianreavis/microplugin.js)).
-- **Touch Support**<br> Plays nice with iOS 5+ devices.
+$selectize-width-item-border: 0 !default;
+$selectize-max-height-dropdown: 200px !default;
 
-### Dependencies
+$selectize-padding-x: 8px !default;
+$selectize-padding-y: 8px !default;
+$selectize-padding-item-x: 6px !default;
+$selectize-padding-item-y: 2px !default;
+$selectize-padding-dropdown-item-x: $selectize-padding-x !default;
+$selectize-padding-dropdown-item-y: 5px !default;
+$selectize-margin-item-x: 3px !default;
+$selectize-margin-item-y: 3px !default;
 
-- [jquery](https://github.com/jquery/jquery) (1.7 and greater)
-- [sifter](https://github.com/brianreavis/sifter.js) (bundled in ["standalone" build](dist/js/standalone))
-- [microplugin](https://github.com/brianreavis/microplugin.js) (bundled in ["standalone" build](dist/js/standalone))
+$selectize-arrow-size: 5px !default;
+$selectize-arrow-color: #808080 !default;
+$selectize-arrow-offset: 15px !default;
 
-### Files
-
-All pre-built files needed to use Selectize can be found in the ["dist"](dist/) folder.
-
-- [**js/**](dist/js)
-	- [**standalone/**](dist/js/standalone)
-		- [selectize.js](dist/js/standalone/selectize.js) — With dependencies, minus jquery
-	- [selectize.js](dist/js/selectize.js) — Without dependencies
-- [**less/**](dist/less)
-	- [selectize.less](dist/less/selectize.less) — Core styles
-	- [selectize.default.less](dist/less/selectize.default.less) — Default theme
-	- [selectize.bootstrap2.less](dist/less/selectize.bootstrap2.less) — Bootstrap 2 theme
-	- [selectize.bootstrap3.less](dist/less/selectize.bootstrap3.less) — Bootstrap 3 theme
-	- [**plugins/**](dist/less/plugins) — Individual plugin styles
-- [**css/**](dist/css)
-	- [selectize.css](dist/css/selectize.css) — Core styles
-	- [selectize.default.css](dist/css/selectize.default.css) — Default theme (with core styles)
-	- [selectize.bootstrap2.css](dist/css/selectize.bootstrap2.css) - Bootstrap 2 theme
-	- [selectize.bootstrap3.css](dist/css/selectize.bootstrap3.css) - Bootstrap 3 theme
+$selectize-caret-margin: 0 2px 0 0 !default;
+$selectize-caret-margin-rtl: 0 4px 0 -2px !default;
+```
 
 ### Usage
 
@@ -62,39 +69,6 @@ $('select').selectize(options);
 ```
 
 The available options are [documented here](docs/usage.md).
-
-#### IE8 Support
-
-To support Internet Explorer 8, [es5-shim](https://github.com/kriskowal/es5-shim/) must be added your page.
-
-```html
-<!--[if lt IE 9]><script src="http://cdnjs.cloudflare.com/ajax/libs/es5-shim/2.0.8/es5-shim.min.js"></script><![endif]-->
-```
-
-### Custom Builds
-
-By default, all [plugins](src/plugins) are included. To hand-pick what plugins (if any) to include, run [`grunt`](http://gruntjs.com/) with the "--plugins" flag. After this completes, grab the files you need from the ["dist"](dist) folder.
-
-```sh
-# dependencies
-npm install
-
-# build selectize
-grunt --plugins=
-grunt --plugins=*
-grunt --plugins=remove_button,restore_on_backspace
-```
-
-### Contributing
-
-When issuing a pull request, *please exclude changes in the "dist" folder to avoid merge conflicts*. Also, please ensure all the tests pass:
-
-```sh
-$ npm test # phantomjs
-$ BROWSERS=Firefox npm test
-$ BROWSERS=Firefox,Chrome npm test
-$ BROWSERS=Firefox,Chrome,Safari npm test
-```
 
 ## License
 
